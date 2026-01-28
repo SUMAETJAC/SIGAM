@@ -1,60 +1,147 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SIGAM - Sistema de Gestão Ambiental</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="src/css/sigam.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body>
-    <div class="container py-4">
-        
-        <div class="mb-4">
-            <a href="index.html" class="btn btn-voltar">
-                <i class="fa-solid fa-chevron-left me-2"></i> Voltar 
-            </a>
-        </div>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8f5ef; /* Seu verde claro */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Garante que o corpo ocupa toda a altura da tela */
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll during animation */
+}
 
-        <div class="text-center mb-5">
-            <div class="logo-box-sigam">
-                <img src="https://www.tjac.jus.br/wp-content/uploads/2025/04/logo_TJAC_b_h-1.png" alt="Logo TJAC" class="logo-tjac-sigam">
-            </div>
-            <h1 class="titulo-sigam">SIGAM – Sistema de Gestão Ambiental</h1>
-        </div>
+/* O container do Bootstrap já cuida da largura e centralização,
+   então podemos focar nos elementos internos. */
 
-        <div class="row g-4 justify-content-center">
-            <div class="col-12 col-md-5 col-lg-4">
-                <div class="card h-100 shadow-sm border-0 rounded-4">
-                    <div class="card-body p-4 text-center">
-                        <i class="fa-solid fa-calendar-check fa-3x text-success mb-3"></i>
-                        <h5 class="card-title-sigam">Indicadores Mensais</h5>
-                        <p class="card-text-sigam">Registro periódico de atividades e indicadores socioambientais.</p>
-                        <a href="https://script.google.com/macros/s/AKfycbzCX-XbpYGSJXmoswkSAdRR0o7_bhVMzQeYCfeDovg-uuF5Z3f89Y08P4mPABTpEBEO/exec" class="btn btn-success btn-lg w-100 rounded-pill">
-                            <i class="fa-solid fa-arrow-right me-2"></i> Clique Aqui!
-                        </a>
-                    </div>
-                </div>
-            </div>
+/* Estilos para o logo */
+.img-fluid {
+    display: block; /* Garante que a imagem se comporte como bloco para centralizar */
+    margin: 0 auto; /* Centraliza a imagem */
+    margin-bottom: 20px; /* Espaçamento abaixo do logo */
+}
 
-            <div class="col-12 col-md-5 col-lg-4">
-                <div class="card h-100 shadow-sm border-0 rounded-4">
-                    <div class="card-body p-4 text-center">
-                        <i class="fa-solid fa-calendar-days fa-3x text-success mb-3"></i>
-                        <h5 class="card-title-sigam">Indicadores Anuais</h5>
-                        <p class="card-text-sigam">Relatório consolidado de desempenho socioambiental anual.</p>
-                        <a href="https://script.google.com/macros/s/AKfycbwpDC8sEUI_9-xIGcBMuVtY6-vb6_By3SB7TLcg0Suee0gUo6L0ZZYu2u89p-zvKGNy-Q/exec" class="btn btn-success btn-lg w-100 rounded-pill">
-                            <i class="fa-solid fa-arrow-right me-2"></i> Clique Aqui!
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+/* Estilos para os títulos */
+h1 {
+    color: #2E7D32; /* Seu verde escuro */
+}
 
-        <footer class="footer text-center text-muted mt-5 py-3 border-top">
-            Secretaria de Governança e Gestão Estratégica - SEGOV &copy; 2025
-        </footer>
-    </div>
-</body>
-</html>
+/* Estilo para os cards */
+.card {
+    border: none; /* Remove a borda padrão do Bootstrap */
+    border-radius: 12px; /* Mantém seu border-radius original */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sua sombra original */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de hover */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    color: #2E7D32; /* Seu verde escuro para os títulos dos cards */
+}
+
+/* Estilo para os botões dentro dos cards */
+.btn-success {
+    background-color: #336b2c; /* Seu verde escuro para os botões */
+    border-color: #2E7D32;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-success:hover {
+    background-color: #1B5E20; /* Seu verde mais escuro para o hover */
+    border-color: #1B5E20;
+    transform: translateY(-1px);
+}
+
+.btn-success:active {
+    transform: scale(0.98);
+}
+
+/* Estilo para o footer */
+.footer {
+    font-size: 0.9em;
+    color: #6c757d; /* Cor mais suave para o texto do footer */
+}
+
+/* Você pode adicionar mais estilos aqui se precisar */
+
+.logo {
+    display: block;
+    margin: 0 auto 30px auto;
+    max-width: 130px;
+    padding: 15px;
+    border-radius: 9px;
+    background-color: #2E7D32;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* New: Fade-in animation for the container */
+.container {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0; /* Start invisible */
+}
+
+.caixa-indicadores {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.btn-voltar {
+    color: #2E7D32;
+    border: 2px solid #2E7D32;
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-voltar:hover {
+    background-color: #2E7D32;
+    color: white;
+}
+
+.logo-box-sigam {
+    background-color: #2E7D32;
+    display: inline-block;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.logo-tjac-sigam {
+    max-width: 180px;
+    filter: brightness(0) invert(1); /* Deixa o logo branco como na imagem */
+}
+
+.titulo-sigam {
+    color: #2E7D32;
+    font-weight: bold;
+}
+
+.card-title-sigam {
+    color: #2E7D32;
+    font-weight: bold;
+}
+
+.card-text-sigam {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
