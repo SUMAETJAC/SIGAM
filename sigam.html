@@ -1,61 +1,500 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Indicadores Socioambientais</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="src/css/sigam.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <title>SUMAE - Central de Relatórios</title>
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Estilo para as sub-abas da Agenda e Anotações */
+    .agenda-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    .btn-agenda {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      background-color: #f1f1f1;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-agenda.active {
+      background-color: #2c3e50;
+      color: white;
+    }
+    .calendar-container {
+      display: none;
+    }
+    .calendar-container.active {
+      display: block;
+    }
+    /* Estilo para área de anotação local */
+    #textoAnotacoes {
+      width: 100%;
+      height: 400px;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+  </style>
 </head>
 <body>
-    <div class="container py-4">
-        
-        <div class="mb-4">
-            <a href="index.html" class="btn btn-voltar">
-                <i class="fa-solid fa-chevron-left me-2"></i> Voltar 
-            </a>
-        </div>
+  <header>
+    <h1>SUMAE - Central de Ferramentas</h1>
+  </header>
+<main>
+  <nav class="tabs">
+    <button class="tablink active" onclick="openTab(event, 'painel')">
+      <i class="fa-solid fa-chart-line"></i> Painéis
+    </button>
+    <button class="tablink" onclick="openTab(event, 'ferramenta')">
+      <i class="fa-solid fa-toolbox"></i> Ferramentas
+    </button>
+    <button class="tablink" onclick="openTab(event, 'agenda')">
+      <i class="fa-solid fa-calendar-days"></i> Agenda
+    </button>
+    <button class="tablink" onclick="openTab(event, 'anotacoes')">
+      <i class="fa-solid fa-pen-to-square"></i> Anotações
+    </button>
+  </nav>
 
-        <div class="text-center mb-5">
-            <div class="logo-box-sigam">
-                <img src="https://www.tjac.jus.br/wp-content/uploads/2025/04/logo_TJAC_b_h-1.png" alt="Logo TJAC" class="logo-tjac-sigam">
-            </div>
-            <h1 class="titulo-sigam">Indicadores Socioambientais</h1>
-        </div>
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="Pesquisar... 🔍">
+  </div>
 
-        <div class="row g-4 justify-content-center">
-            <div class="col-12 col-md-5 col-lg-4">
-                <div class="card h-100 shadow-sm border-0 rounded-4">
-                    <div class="card-body p-4 text-center">
-                        <i class="fa-solid fa-calendar-check fa-3x text-success mb-3"></i>
-                        <h5 class="card-title-sigam">Indicadores Mensais</h5>
-                        <p class="card-text-sigam">Registro periódico de atividades e indicadores socioambientais.</p>
-                        <a href="https://script.google.com/a/macros/tjac.jus.br/s/AKfycbxWMBriEi4ALQV69wVsQbK1fqczdsiM4UD5VyudeM89uuCwSqww-VGwlvMAAo3pIlpQ/exec" class="btn btn-success btn-lg w-100 rounded-pill">
-                            <i class="fa-solid fa-arrow-right me-2"></i> Clique Aqui!
-                        </a>
-                    </div>
-                </div>
-            </div>
+  <section id="painel" class="tabcontent" style="display:block;">
+    <h2>Painéis</h2>
+    <div class="grid">
+      
+      <div class="card painel">
+          <img src="img/premio (2).png" alt="Prêmio 2026 (Sistema de monitoramento)" class="card-icon">
+          <h3>Prêmio 2026 (Sistema de monitoramento)</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiODhiNjI2ZTktODk5ZC00OGI1LTg4MDYtNTBiZjJlY2Q1NWNhIiwidCI6IjQzY2JlMDcwLTQyNmItNDkzYS04NDdmLWM1MTUwMmQ0MzViOSJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://premiotjac.gt.tc" target="_blank" class="btn">
+                  <i class="fa-solid fa-laptop-code"></i> Sistema
+              </a>
+          </div>
+      </div>
 
-            <div class="col-12 col-md-5 col-lg-4">
-                <div class="card h-100 shadow-sm border-0 rounded-4">
-                    <div class="card-body p-4 text-center">
-                        <i class="fa-solid fa-calendar-days fa-3x text-success mb-3"></i>
-                        <h5 class="card-title-sigam">Indicadores Anuais</h5>
-                        <p class="card-text-sigam">Relatório consolidado de desempenho socioambiental anual.</p>
-                        <a href="https://script.google.com/a/macros/tjac.jus.br/s/AKfycbwn9VIGO6JcqVNrmT6ZxFgbkOSUybb_6fx95WACSNSrhS9p7Z69hNrexjyUgUD6j8-QzA/exec" class="btn btn-success btn-lg w-100 rounded-pill">
-                            <i class="fa-solid fa-arrow-right me-2"></i> Clique Aqui!
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="card painel">
+          <img src="img/trofeu Conquistado .png" alt="Painel Prêmio 2025" class="card-icon">
+          <h3>Prêmio 2025</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiMDRlYWE0NjQtMjEwMi00YTg2LWFiMzItNGNkOTM2MjAwOTE3IiwidCI6IjQzY2JlMDcwLTQyNmItNDkzYS04NDdmLWM1MTUwMmQ0MzViOSJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://docs.google.com/spreadsheets/d/1r8rML2Zofm6v3kDWxFsfJLaQuGzcltzLEcR8ZMTRzNU/edit?gid=711837565#gid=711837565" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Planilha
+              </a>
+          </div>
+      </div>
 
-        <footer class="footer text-center text-muted mt-5 py-3 border-top">
-            Secretaria de Governança e Gestão Estratégica - SEGOV &copy; 2025
-        </footer>
+      <div class="card painel">
+          <img src="img/trofeu.png" alt="Painel Prêmio 2026" class="card-icon">
+          <h3>Prêmio 2026</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiM2QzMTVhYWYtMjYzNi00NmIzLTgzZjEtODBhYjdhZDg4ZmQ5IiwidCI6IjQzY2JlMDcwLTQyNmItNDkzYS04NDdmLWM1MTUwMmQ0MzViOSJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://docs.google.com/spreadsheets/d/1-GPZ8isI3g7gsqyGxZVq08AHLxAT2DjC2Ey88ObrIWQ/edit?gid=0#gid=0" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Planilha
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/agente-de-atendimento-ao-cliente.png" alt="Painel Ouvidoria" class="card-icon">
+          <h3>Ouvidoria</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiZWU2ZGFkMDUtMGY0My00ZjczLWEwZWItNDk3NDU3MTg3ZmRjIiwidCI6ImNjMzUyYTVjLTExNDctNDQ4YS1iODI4LWJlYTg3YTc3MDY3YyJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://docs.google.com/spreadsheets/d/1I8Jqa7y0kI5CRf5Livz8jOGqL9xtR0CBFshTUcVt6qg/edit?resourcekey=&gid=2142406571#gid=2142406571" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Planilha
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/transparencia.png" alt="Painel Transparência" class="card-icon">
+          <h3>Transparência</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiMjk5NzJjMzItZTg3Yy00ZTYyLTk1MWUtNTVjZDEzYTkwYTE0IiwidCI6ImNjMzUyYTVjLTExNDctNDQ4YS1iODI4LWJlYTg3YTc3MDY3YyJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://docs.google.com/spreadsheets/d/1598mKmZJxLwmh7IR729MrDIBBIiXGY2V4bTtUSgG5Qw/edit?gid=0#gid=0" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Planilha
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/plano-de-acao.png" alt="Painel Plano de Ação" class="card-icon">
+          <h3>Plano de Ação Meta 1,2,3</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiMjk5NzJjMzItZTg3Yy00ZTYyLTk1MWUtNTVjZDEzYTkwYTE0IiwidCI6ImNjMzUyYTVjLTExNDctNDQ4YS1iODI4LWJlYTg3YTc3MDY3YyJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://docs.google.com/spreadsheets/d/1cRqc9G_IufvFpZtJq03wCCkZpQW1PVz1Gd-setQcR7Q/edit?usp=sharing" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Planilha
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/gasta.png" alt="Painel Gastos de Diárias" class="card-icon">
+          <h3>Gastos de Diárias</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiYWU1YzU4MGEtZjFmMC00MTk5LWJmNmItNDNjYTkwMWNkY2M5IiwidCI6ImNjMzUyYTVjLTExNDctNDQ4YS1iODI4LWJlYTg3YTc3MDY3YyJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://docs.google.com/spreadsheets/d/1P_ucOWBHnVJ1FdwzRN7i_WiUkwFvuyyoKPAPFcu_ycE/edit?gid=0#gid=0" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Planilha
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/Eproc-Azul-logo-nova.png" alt="Ícone do Eproc" class="card-icon">
+          <h3>Cronograma do Eproc</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiYzRiZmM2ZGItMTQ1NC00Mzk1LWIyOWEtOWNlYmRlYjZlMzdlIiwidCI6IjQzY2JlMDcwLTQyNmItNDkzYS04NDdmLWM1MTUwMmQ0MzViOSJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://docs.google.com/spreadsheets/d/1wktI3FQ-c-PqIA19dVA8vSEj4nsLLTYdfvsyC-xJUMQ/edit?gid=1581992997#gid=1581992997" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Planilha
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/PLS.png" alt="PLS Anual" class="card-icon">
+          <h3>PLS Anual</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiNTk4OGUxMzYtZTIzYi00YWU5LWJmMGItNzE0NzBhMjZlM2VjIiwidCI6IjQzY2JlMDcwLTQyNmItNDkzYS04NDdmLWM1MTUwMmQ0MzViOSJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://docs.google.com/spreadsheets/d/1V0BlgzV3N5bbYu3CJW5-jB9hms50FL0lNLL8a5LqhBI/edit?usp=drive_web" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Planilha
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/PLS.png" alt="PLS Mensal" class="card-icon">
+          <h3>PLS Mensal</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiMDQ2NjA5Y2YtYmZlZC00ZTY3LWIyOTgtMTkyYjRhOWE0NDQ3IiwidCI6IjQzY2JlMDcwLTQyNmItNDkzYS04NDdmLWM1MTUwMmQ0MzViOSJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://docs.google.com/spreadsheets/d/1-FiARwMr-GYVE-fRJonoA_bw0xPG2Gws8TQLqYugxWI/edit?gid=893171803#gid=893171803" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Planilha
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/satisfacao-do-cliente 1.png" alt="Satisfação" class="card-icon">
+          <h3>Satisfação</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiYmZjOTg1MjMtZjc5OS00MTQyLWE3YTktZTgxMmI1ZjY2ZjExIiwidCI6IjQzY2JlMDcwLTQyNmItNDkzYS04NDdmLWM1MTUwMmQ0MzViOSJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://docs.google.com/spreadsheets/d/1KMSRh6GDa_u9YkPVXN55KQ5rfS-noMuWj2jiGbjTaVI/edit?resourcekey=&gid=554927045#gid=554927045" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Planilha
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/Inteligente.png" alt="Cronograma Plataforma Inteligente" class="card-icon">
+          <h3>Cronograma Plataforma Inteligente</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiYmJjOWMyMGYtNjVjYS00MmRlLWEwNjItNmJiMGVjY2JmNzI3IiwidCI6ImNjMzUyYTVjLTExNDctNDQ4YS1iODI4LWJlYTg3YTc3MDY3YyJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://docs.google.com/spreadsheets/u/0/d/11Ejjtkoa_s5QsUYxEXLl_CYWyH8F-BeN6z2-0_Ahpyk/edit?usp=sharing&pli=1&authuser=0" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Planilha
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/ICONANALISE.png" alt="Gestão de Inconsistências dos Painéis do TJAC" class="card-icon">
+          <h3>Gestão de Inconsistências dos Painéis do TJAC</h3>
+          <div class="card-buttons">
+              <a href="https://tjac-insight-dashboard.lovable.app/" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://docs.google.com/spreadsheets/d/1gYgi1ZcRGE28lBGgaAsC32qVmqBiZLvPWZbmMKhvfwU/edit?usp=sharing" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Planilha
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/doar.png" alt="Painel de Assistência Judiciaria Gratuita" class="card-icon">
+          <h3>Painel de Assistência Judiciaria Gratuita - Concedida</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiM2U3ZDk0OTctODc2MS00MTI5LWI4MWItNDRiMTI4OGIxMjE1IiwidCI6IjQzY2JlMDcwLTQyNmItNDkzYS04NDdmLWM1MTUwMmQ0MzViOSJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://drive.google.com/drive/folders/1Re3dnZoI67NLLjpKEE1F6tuzCw49n3DH" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Pasta
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/saudep.png" alt="Painel de Processos de Saúde" class="card-icon">
+          <h3>Processos de Saúde</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiNzg5M2NkYTMtODg1OC00YmQ0LWJlMWItMGJkZTc5OTVmYzZlIiwidCI6IjQzY2JlMDcwLTQyNmItNDkzYS04NDdmLWM1MTUwMmQ0MzViOSJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://drive.google.com/drive/folders/1zFhakgzPoUquQt6HXcro1FrdV2MOJpLS" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Pasta
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/cobrar.png" alt="Painel de Contratos Bancários" class="card-icon">
+          <h3>Contratos Bancários</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiYzZmMmRmZjUtMWM3Ni00Njc0LTk1Y2MtMzU2YzY5NDA2MmVhIiwidCI6IjQzY2JlMDcwLTQyNmItNDkzYS04NDdmLWM1MTUwMmQ0MzViOSJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://drive.google.com/drive/folders/1LSRlPUqFBFo-IJgWjhD367C5voHfvjIv" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Pasta
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/satisfacao.png" alt="Pesquisa Satisfação - Paineis BI" class="card-icon">
+          <h3>Pesquisa Satisfação - Paineis BI</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiNmY4MmZmODctMzU0YS00ODY1LWI1NjEtY2Q4YWQ0MTYxYmQ4IiwidCI6IjQzY2JlMDcwLTQyNmItNDkzYS04NDdmLWM1MTUwMmQ0MzViOSJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+          </div>
+      </div>
+
+      <div class="card painel">
+          <img src="img/portfolio.png" alt="Painel Portfólio" class="card-icon">
+          <h3>Portfólio</h3>
+          <div class="card-buttons">
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiMTBiM2M2YzQtNTIzYS00MjkzLTkxMTctNTNiYWZlOWZmY2JhIiwidCI6IjY3MTY1NWJmLWRkNmMtNGM1YS04ZjdiLTdjODM1Y2YzMjI2ZiJ9" target="_blank" class="btn">
+                  <i class="fa-solid fa-chart-line"></i> Painel
+              </a>
+              <a href="https://tjacre2026-my.sharepoint.com/:x:/g/personal/josueabreu_tjacre2026_onmicrosoft_com/EdiuSEB6tlxNhIG7csjohsoBLKSQ8Cqk7unAJS6pN0zGeg?e=BF4aH2" target="_blank" class="btn">
+                  <i class="fa-solid fa-table"></i> Planilha
+              </a>
+          </div>
+      </div>
+
     </div>
+  </section>
+
+  <section id="ferramenta" class="tabcontent">
+    <h2>Ferramentas</h2>
+    <div class="subcategoria">
+      <h3>Ferramentas Rápidas</h3>
+      <div class="grid">
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/e-mail.png" alt="WebMail" class="card-icon">
+          <h3>WebMail</h3>
+          <div class="card-buttons"><a href="https://mail.tjac.jus.br/webmail/" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/Ponto.png" alt="Ponto Remoto" class="card-icon">
+          <h3>Ponto Remoto</h3>
+          <div class="card-buttons"><a href="https://portal-serv.tjac.jus.br/rhsysweb/public/PontoRemoto.xhtml" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/Acesso.png" alt="Acesso Servidor" class="card-icon">
+          <h3>Acesso Servidor</h3>
+          <div class="card-buttons"><a href="https://portal-serv.tjac.jus.br/rhsysweb/public/xcp/XcpLogin.xhtml" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/whatsapplogo.png" alt="Whatsapp" class="card-icon">
+          <h3>Whatsapp</h3>
+          <div class="card-buttons"><a href="https://web.whatsapp.com/" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/googledirve.png" alt="Drive SEGOV" class="card-icon">
+          <h3>Drive SEGOV</h3>
+          <div class="card-buttons"><a href="https://drive.google.com/drive/" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/googledirve.png" alt="Drive SUMAE" class="card-icon">
+          <h3>Drive SUMAE</h3>
+          <div class="card-buttons"><a href="https://drive.google.com/drive/u/0/folders/0APPCuV23ivU4Uk9PVA" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/gemini.png" alt="Gemini" class="card-icon">
+          <h3>Gemini</h3>
+          <div class="card-buttons"><a href="https://gemini.google.com/" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/ChatGPT-Logo.png" alt="ChatGPT" class="card-icon">
+          <h3>ChatGPT</h3>
+          <div class="card-buttons"><a href="https://chatgpt.com/" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/radar.png" alt="Plano Radar CNJ" class="card-icon">
+          <h3>Plano Radar CNJ</h3>
+          <div class="card-buttons"><a href="https://cnj-plano-radar.lovable.app/" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/sei-logo.png" alt="Acesso SEI" class="card-icon">
+          <h3>Acesso SEI</h3>
+          <div class="card-buttons"><a href="https://sei.tjac.jus.br/sip/login.php?sigla_orgao_sistema=TJAC&sigla_sistema=SEI" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/nextcloud.png" alt="NextCloud" class="card-icon">
+          <h3>NextCloud</h3>
+          <div class="card-buttons"><a href="https://cloud.tjac.jus.br/index.php/apps/dashboard/" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/ICONANALISE.png" alt="Inconsistências ALVANK" class="card-icon">
+          <h3>Inconsistências e Solicitações - ALVANK DATA</h3>
+          <div class="card-buttons"><a href="https://docs.google.com/spreadsheets/d/1j9SUCSgeec1dH523UxXwA0RejqJW5m8feUpl5kb_Xt4/edit?gid=681005337#gid=681005337" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subcategoria">
+      <h3>Outras Ferramentas</h3>
+      <div class="grid">
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/logo_TJAC_v.png" alt="Consulta Processos Sigilosos" class="card-icon">
+          <h3>Consulta de Processos Sigilosos</h3>
+          <div class="card-buttons"><a href="https://aux-datajud-hml.tjac.jus.br/" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/PowerBi.png" alt="Power BI" class="card-icon">
+          <h3>Power BI</h3>
+          <div class="card-buttons"><a href="https://app.powerbi.com/home?experience=power-bi" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/logo_TJAC_v.png" alt="Painéis TJAC" class="card-icon">
+          <h3>Painéis TJAC</h3>
+          <div class="card-buttons"><a href="https://estatistica.tjac.jus.br/index.html" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/Portaria.png" alt="Portaria Prêmio Qualidade" class="card-icon">
+          <h3>Portaria Prêmio Qualidade</h3>
+          <div class="card-buttons"><a href="https://atos.cnj.jus.br/atos/detalhar/5880#:~:text=III%20%E2%80%93%20Pr%C3%AAmio%20CNJ%20de%20Qualidade%20Ouro%3A" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/Saj Pg.png" alt="SAJ-Insights PG" class="card-icon">
+          <h3>SAJ-Insights PG</h3>
+          <div class="card-buttons"><a href="https://identidade-saj.tjac.jus.br/auth/realms/SAJ/protocol/openid-connect/auth?client_id=saj&redirect_uri=https%3A%2F%2Festatisticas-saj.tjac.jus.br%2Fartefatos%2Fpaineis&state=1ea07bce-b8b3-449c-8855-c623774e2ed3&response_mode=fragment&response_type=code%20id_token%20token&scope=openid&nonce=55412319-2e86-4938-ad36-1c3b56086c7e" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/Saj SG.png" alt="SAJ-Insights SG" class="card-icon">
+          <h3>SAJ-Insights SG</h3>
+          <div class="card-buttons"><a href="https://identidade-saj.tjac.jus.br/auth/realms/SAJSG/protocol/openid-connect/auth?client_id=saj-sg&redirect_uri=https%3A%2F%2Festatisticas-saj-sg.tjac.jus.br%2Fartefatos%2Fpaineis&state=541d639c-682d-46e8-82e7-3d4a7a69d633&response_mode=fragment&response_type=code%20id_token%20token&scope=openid&nonce=d23edfb7-1a40-4d95-814b-c24f6f8487b8" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/Qlik_Logo.svg.png" alt="Qlik Sense Produção" class="card-icon">
+          <h3>Qlik Sense Produção</h3>
+          <div class="card-buttons"><a href="https://qlik.tjac.jus.br/internal_forms_authentication/?targetId=5323c7cd-d625-400b-9cd9-39abedc87dfd" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/Qlik_Logo.svg.png" alt="Qlik Sense Painéis" class="card-icon">
+          <h3>Qlik Sense Painéis</h3>
+          <div class="card-buttons"><a href="https://paineis.tjac.jus.br/internal_forms_authentication/?targetId=e3eb8de4-bba1-40e2-bc91-7f2f6710812b" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/SEEU.png" alt="Sistema SEEU" class="card-icon">
+          <h3>Sistema SEEU</h3>
+          <div class="card-buttons"><a href="https://seeu.pje.jus.br/seeu/" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/SEEU.png" alt="Distribuição SEEU" class="card-icon">
+          <h3>Distribuição SEEU</h3>
+          <div class="card-buttons"><a href="https://coger.tjac.jus.br/metabase/public/question/81963176-eff1-43a8-8f21-e60d41615018?inicio=&fim=" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/WordPress.png" alt="Wordpress TJ" class="card-icon">
+          <h3>Wordpress TJ</h3>
+          <div class="card-buttons"><a href="https://www.tjac.jus.br/wp-login.php?redirect_to=https%3A%2F%2Fwww.tjac.jus.br%2Fwp-admin%2Fpost.php%3Fpost%3D211065%26action%3Dedit&reauth=1" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/SIGAM.png" alt="SIGAM" class="card-icon">
+          <h3>SIGAM</h3>
+          <div class="card-buttons"><a href="https://sumaetjac.github.io/SIGAM/" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+        <div class="card ferramenta">
+          <img src="img/Ferramentas/GoogleChat.png" alt="Google Chat" class="card-icon">
+          <h3>Google Chat</h3>
+          <div class="card-buttons"><a href="https://mail.google.com/chat/u/0/#chat/home" target="_blank" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agenda" class="tabcontent">
+    <h2>Agenda</h2>
+    <div class="agenda-selector">
+      <button class="btn-agenda active" onclick="switchAgenda('programacao', this)">Programação (SEGOV/SUMAE/TAREFAS)</button>
+      <button class="btn-agenda" onclick="switchAgenda('ferias', this)">Férias</button>
+    </div>
+    
+    <div id="programacao" class="calendar-container active">
+      <iframe src="https://calendar.google.com/calendar/embed?src=c_a010cb12260e1148da40d976d21f539b7043572bd65a5acc6ac8357fb11810ab%40group.calendar.google.com&src=c_78c1e782330e2dd52903e19afb122c5d1a990d7407307e96ac12508a5b20897c%40group.calendar.google.com&src=c_dffa7b2789d60db9bab6cab1318bf5bc09b07261638a0bade6bd1ebce7264680%40group.calendar.google.com&ctz=America%2FRio_Branco" style="border: 0; width: 100%; height: 600px;" frameborder="0" scrolling="no"></iframe>
+    </div>
+    
+    <div id="ferias" class="calendar-container">
+      <iframe src="https://calendar.google.com/calendar/embed?src=772db5175c4b02d6ff397f7d698c508a82851ebb718302f4042cf6f48359c2de%40group.calendar.google.com&ctz=America%2FRio_Branco" style="border: 0; width: 100%; height: 600px;" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </section>
+
+  <section id="anotacoes" class="tabcontent">
+    <h2>Anotações</h2>
+    <div class="agenda-selector">
+      <button class="btn-agenda active" onclick="switchAnotacao('anotacao-local', this)">Minhas Anotações (Local)</button>
+      <button class="btn-agenda" onclick="switchAnotacao('anotacao-sumae', this)">Anotações SUMAE (Equipe)</button>
+    </div>
+
+    <div id="anotacao-local" class="calendar-container active">
+      <p style="margin-bottom: 10px; font-size: 0.9em; color: #555;">Este texto fica salvo automaticamente no seu navegador. Ninguém mais tem acesso.</p>
+      <textarea id="textoAnotacoes" placeholder="Digite suas anotações aqui..."></textarea>
+      <div style="text-align: right; margin-top: 10px;">
+        <button onclick="salvarAnotacaoLocal()" class="btn" style="background-color: #1f2a44; color: white; border:none;"><i class="fa-solid fa-save"></i> Salvar Anotações</button>
+      </div>
+    </div>
+
+    <div id="anotacao-sumae" class="calendar-container">
+      <p style="margin-bottom: 10px; font-size: 0.9em; color: #555;">Anotações compartilhadas. Você precisa estar logado na conta Google autorizada para visualizar e editar.</p>
+      <iframe src="https://docs.google.com/document/d/19Af3fy_KvSKA6EzXDBpSeoLz7PYxNsB3eSgWWXMWP4U/edit?rm=minimal" style="border: 1px solid #ccc; width: 100%; height: 600px; border-radius: 8px;"></iframe>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Site Produzido pela SUMAE</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
-
